@@ -1,0 +1,43 @@
+<div class="container">
+  <form class="m-5">
+    <div class="row">
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="servico.estado.nome" name="nome">
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" type="text" name="sigla" [(ngModel)]="servico.estado.sigla">
+      </div>
+      <div class="">
+        <button class="btn btn-info" type="button" name="button" (click)='adicionar()'>Adicionar</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sigla</th>
+        <th scope="col">Excluir</th>
+        <th scope="col">Alterar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estado of servico.listaEstados; let i = index">
+        <td>{{estado.nome}}</td>
+        <td>{{estado.sigla}}</td>
+        <td>
+        <button class="btn btn-info" type="button" name="button" (click)="excluir(i)">
+          <i class="fas fa-trash"></i>
+        </button>
+        </td>
+        <td>
+        <button class="btn btn-info" type="button" name="button" (click)="alterar(i)">
+          <i class="fas fa-edit"></i>
+        </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
